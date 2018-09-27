@@ -1,0 +1,13 @@
+@import './mixin.scss';
+@import './normalize.scss';
+@import './page.scss';
+
+.App {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}

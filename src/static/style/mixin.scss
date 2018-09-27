@@ -1,0 +1,61 @@
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin centerX {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin centerY {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin leftMiddleT($top) {
+    position: absolute;
+    left: 50%;
+    top: $top;
+    transform: translateX(-50%);
+}
+
+@mixin leftMiddleB($bottom) {
+    position: absolute;
+    left: 50%;
+    bottom: $bottom;
+    transform: translateX(-50%);
+}
+
+@mixin absoluteLT($left, $top) {
+    position: absolute;
+    left: $left;
+    top: $top;
+}
+
+@mixin absoluteRT($right, $top) {
+    position: absolute;
+    right: $right;
+    top: $top;
+}
+
+@mixin absoluteLB($left, $botm) {
+    position: absolute;
+    left: $left;
+    bottom: $botm;
+}
+
+@mixin absoluteRB($right, $botm) {
+    position: absolute;
+    right: $right;
+    bottom: $botm;
+}

@@ -10,10 +10,10 @@ module.exports = {
      */
     context: path.resolve(__dirname, '../'),
     entry: {
-        index: './src/static/js/index.js'
+        index: './src/app.js'
     },
     resolve: {
-        extensions: [".js",".css",".json"],
+        extensions: ['.js', '.es6', '.scss', '.css', '.html', 'json'],
         alias: {} //配置别名可以加快webpack查找模块的速度
     },
     module: {
@@ -21,6 +21,7 @@ module.exports = {
     rules:[
         loader.css(),
         loader.happyBabel(),
+        loader.html(),
         loader.images(),
         loader.medias(),
         loader.fonts()

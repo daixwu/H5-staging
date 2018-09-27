@@ -87,7 +87,7 @@ exports.fonts = () => {
 }
 
 // media
-exports.medias = (opt = {}) => {
+exports.medias = () => {
     return {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
@@ -96,4 +96,12 @@ exports.medias = (opt = {}) => {
             name: assetsPath('media/[name].[hash:7].[ext]')
         }
     };
+}
+
+// 解析 html 静态模板中的 img 等资源标签
+exports.html = () => {
+    return {
+        test: /\.html?$/,
+        loader: 'html-loader?interpolate'
+    }
 }
