@@ -2,23 +2,10 @@
  * @Author: Derwin 
  * @Date: 2018-09-14 20:34:40 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-09-21 10:45:35
+ * @Last Modified time: 2019-02-15 17:03:33
  */
 
-
-//边框采用px，假如设计稿边框宽度1p
-
-.home {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-    .content {
-        @include size(500px, 500px);
-        @include center;
-        .img {
-            @include size(500px, 500px);
-            
-        }
-    }
+.Page.home {
+    background: #125566 url(../images/bg-skip.jpg) 0 0 no-repeat;
+    background-size: 100% auto;
 }

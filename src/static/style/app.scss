@@ -11,3 +11,33 @@
     margin: 0 auto;
     font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
+
+.Page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    &.transition{
+        transition: all .3s;
+    }
+    &.show{
+        transform: translateX(0);
+    }
+    &.block{
+        display: block;
+    }
+    &.show.no-animation{
+        transition:0s;
+    }
+    &.hide-after{
+        transform: translateX(100%);
+    }
+    &.hide-before{
+        transform: translateX(-100%);
+    }
+}

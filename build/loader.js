@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {resolve, assetsPath} = require('./utils');
+const { resolve, assetsPath } = require('./utils');
 const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -15,16 +15,16 @@ const cssLoader = {
         sourceMap: dev
     }
 };
-  
+
 
 // postcss
 const postCSSLoader = {
     loader: 'postcss-loader',
     options: {
-      sourceMap: dev
+        sourceMap: dev
     }
 };
-  
+
 
 // CSS文件单独提取出来
 const MiniCssExtract = {
@@ -35,7 +35,7 @@ const MiniCssExtract = {
         // 我们抽离的 css 文件在可能会单独放在 css 文件夹内
         // 引用其他如 img/a.png 会寻址错误
         // 这种情况下所以单独需要配置 publicPath，复写其中资源的路径
-        publicPath: '../' 
+        publicPath: '../'
     }
 };
 
@@ -64,13 +64,12 @@ exports.images = () => {
     return {
         test: /\.(png|jpg|jpeg|gif|svg)/,
         use: [{
-                loader: 'url-loader',
-                options: {
-                    name: assetsPath('images/[name].[hash:7].[ext]'), // 图片输出的路径
-                    limit: 1 * 1024,
-                }
-            },
-        ]
+            loader: 'url-loader',
+            options: {
+                name: assetsPath('images/[name].[hash:7].[ext]'), // 图片输出的路径
+                limit: 1 * 1024,
+            }
+        }, ]
     };
 }
 
@@ -80,7 +79,7 @@ exports.fonts = () => {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-            limit: 3000,
+            limit: 10000,
             name: assetsPath('fonts/[name].[hash:7].[ext]')
         }
     };
@@ -92,7 +91,7 @@ exports.medias = () => {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-            limit: 3000,
+            limit: 10000,
             name: assetsPath('media/[name].[hash:7].[ext]')
         }
     };

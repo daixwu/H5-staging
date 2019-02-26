@@ -71,8 +71,8 @@ textarea {
     outline: none;
 }
 
-input {
-    -webkit-appearance: none;
+input, textarea {
+    -webkit-appearance: none; // 针对ios 设置样式, 去除ios下input 椭圆形
 }
 
 table {

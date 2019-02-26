@@ -37,7 +37,7 @@ hash 是用在文件输出的名字中的，如 [name].[hash].js，总的来说�
 
 ```js
 new webpack.DefinePlugin({
-  "process.env.NODE_ENV": JSON.stringify("production")
+    "process.env.NODE_ENV": JSON.stringify("production")
 });
 ```
 
@@ -50,7 +50,7 @@ new webpack.DefinePlugin({
 ```js
     /**
      * 优化部分包括代码拆分
-     * 且运行时（manifest）的代码拆分提取为了独立的 runtimeChunk 配置 
+     * 且运行时（manifest）的代码拆分提取为了独立的 runtimeChunk 配置
      */
     optimization: {
         splitChunks: {
@@ -88,7 +88,7 @@ new webpack.DefinePlugin({
     }
 ```
 
-也可将不会变的开发依赖配置到单独的entry中，如：
+也可将不会变的开发依赖配置到单独的 entry 中，如：
 
 ```js
 entry: {
@@ -105,10 +105,10 @@ entry: {
 exports.html = () => {
     return {
         test: /\.html?$/,
-        loader: 'html-url-loader',
+        loader: "html-url-loader",
         query: { deep: true }
-    }
-}
+    };
+};
 ```
 
 ## 开发服务配置 devServer
@@ -146,18 +146,14 @@ devServer: {
 devServer 使用热更新 hot 时需要使用插件：
 
 ```js
-plugins: [
-    new webpack.HotModuleReplacementPlugin()
-]
+plugins: [new webpack.HotModuleReplacementPlugin()];
 ```
 
 优化 webpack 输出信息，需要配置：
 
 ```js
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-plugins: [
-    new FriendlyErrorsPlugin()
-]
+const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
+plugins: [new FriendlyErrorsPlugin()];
 ```
 
 ### 注意事项
@@ -165,7 +161,7 @@ plugins: [
 - 热更新：在使用热更新时，我们的 chunk 名中不能使用 [hash] 做标识，文件名变化无法热更新，所以需要将原来配置在公共配置中的 output 中的文件名配置分别写入生产和开发模式配置中，开发模式去掉 [hash]
 
 ```js
-filename: 'static/[name].js', 
+filename: 'static/[name].js',
 chunkFilename: 'static/[id].js'
 ```
 
@@ -173,10 +169,10 @@ chunkFilename: 'static/[id].js'
 
 ```js
 new HtmlWebpackPlugin({
-  filename: 'index.html', // 文件写入路径，前面的路径与 devServer 中 contentBase 对应
-  template: path.resolve(__dirname, '../src/index.html'),// 模板文件路径
-  inject: true
-})
+    filename: "index.html", // 文件写入路径，前面的路径与 devServer 中 contentBase 对应
+    template: path.resolve(__dirname, "../src/index.html"), // 模板文件路径
+    inject: true
+});
 ```
 
 ## 雪碧图生成
@@ -187,23 +183,20 @@ new HtmlWebpackPlugin({
 
 ```js
 sprites({
-    spritePath: './src/static/images',
+    spritePath: "./src/static/images",
     spritesmith: {
-        engine: 'pixelsmith',
-        algorithm: 'binary-tree',
+        engine: "pixelsmith",
+        algorithm: "binary-tree",
         padding: 30
     },
     filterBy(image) {
         // 忽略文件路径中含有 `skip`, `jpg` 的图片
         // 下面规则表示 `.jpg` 格式的图片和文件名中含有 `skip` 的图片将不会被合并到雪碧图中
-        if (
-            /\.(svg|gif|jpg)$/.test(image.url) ||
-            /skip/.test(image.url)
-        )
-            return Promise.reject();
+        if (/\.(svg|gif|jpg)$/.test(image.url) || /skip/.test(image.url))
+        return Promise.reject();
         return Promise.resolve();
-    },
-})
+    }
+});
 ```
 
 isprite-loader 貌似有点问题 待考究）
@@ -212,11 +205,11 @@ isprite-loader 貌似有点问题 待考究）
 
 ```js
 const spriteLoader = {
-  loader: "isprite-loader",
-  options: {
-    outputPath: "./src/static/images/",
-    mobile: true
-  }
+    loader: "isprite-loader",
+    options: {
+        outputPath: "./src/static/images/",
+        mobile: true
+    }
 };
 ```
 
@@ -226,17 +219,17 @@ const spriteLoader = {
 
 参考使用 [Night](https://github.com/sunmaobin) 移动端页面适配解决方案，另外 Night 的[移动端 H5 解惑-页面适配](https://github.com/sunmaobin/sunmaobin.github.io/issues/28) 也是很值得一看的。
 
-这个也不错 [移动端全屏滑动h5活动解决方案](https://github.com/chesscai/flexible-adaptive)
+这个也不错 [移动端全屏滑动 h5 活动解决方案](https://github.com/chesscai/flexible-adaptive)
 
 ## 一些参考：
 
-[webpack官网](https://webpack.docschina.org/concepts/)
+[webpack 官网](https://webpack.docschina.org/concepts/)
 
 [Webpack 配置详解（含 4）——关注细节](https://segmentfault.com/a/1190000014685887#articleHeader4)
 
-[脚手架 | 用html-cli为你减少30%的H5工作量](https://zhuanlan.zhihu.com/p/36029902)
+[脚手架 | 用 html-cli 为你减少 30%的 H5 工作量](https://zhuanlan.zhihu.com/p/36029902)
 
-[从实践中寻找webpack4最优配置](https://juejin.im/post/5b07d02a6fb9a07aa213c9bc)
+[从实践中寻找 webpack4 最优配置](https://juejin.im/post/5b07d02a6fb9a07aa213c9bc)
 
 [webpack4.x-learn](https://github.com/wlx200510/webpack4.x-learn)
 
@@ -252,4 +245,4 @@ const spriteLoader = {
 
 [如何在 webpack 中引入未模块化的库，如 Zepto](https://sebastianblade.com/how-to-import-unmodular-library-like-zepto/)
 
-[利用PostCSS解决移动端REM适配问题](https://segmentfault.com/a/1190000010947054)
+[利用 PostCSS 解决移动端 REM 适配问题](https://segmentfault.com/a/1190000010947054)

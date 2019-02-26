@@ -7,7 +7,7 @@ const merge = require('webpack-merge'); //优化配置代码的工具
 const prodWebpackConfig = {
     output:{
         path: path.resolve('dist'),
-        publicPath: '/',
+        publicPath: './',
         filename: 'static/[name].[chunkhash:7].js',
         chunkFilename: 'static/[name].[chunkhash:7].js'
     },

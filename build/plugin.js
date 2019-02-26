@@ -106,7 +106,7 @@ exports.clean = () => {
 // 优化css打包，避免重复打包
 exports.optimizeCSS = () => {
     return new OptimizeCSSPlugin({
-        assetNameRegExp: /\.css$/g,
+        assetNameRegExp: /\.css\.*(?!.*map)/g,
         cssProcessorOptions: {
             safe: true,
             autoprefixer: {

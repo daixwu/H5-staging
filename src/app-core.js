@@ -2,7 +2,7 @@
  * @Author: Derwin 
  * @Date: 2018-09-21 16:41:53 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2018-09-26 19:32:30
+ * @Last Modified time: 2018-09-29 19:01:17
  */
 // class App {
 //     constructor(name) {
@@ -14,15 +14,10 @@
 //     }
 // }
 
-
-
-// let app = new App('hello class');
-
-// app.sayName();
-
-function add(x, y) {
-  return x + y;
+function processInput(input) {
+  return { left, right, top, bottom };
 }
 
-const numbers = [4, 38];
-console.log(...numbers) // 42
+const { left, right } = processInput(input);
+
+console.log(left, right);
