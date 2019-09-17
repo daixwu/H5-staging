@@ -58,8 +58,10 @@
     "webpack-spritesmith": "^0.5.2"
   },
   "dependencies": {
+    "alloytouch": "^0.2.5",
+    "gsap": "^2.1.2",
     "lodash": "^4.17.5",
-    "pixi.js": "^4.8.5",
+    "pixi.js": "4.8.6",
     "zepto": "^1.2.0"
   }
 }

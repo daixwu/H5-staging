@@ -2,10 +2,16 @@
  * @Author: Derwin 
  * @Date: 2018-09-14 20:34:40 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2019-02-15 17:03:33
+ * @Last Modified time: 2019-03-06 10:31:03
  */
 
 .Page.home {
-    background: #125566 url(../images/bg-skip.jpg) 0 0 no-repeat;
+    background: #125566 url(../images/bg/1.jpg) 0 0 no-repeat;
     background-size: 100% auto;
+
+    .box {
+        width: 100px;
+        height: 100px;
+        background: yellow;
+    }  
 }
